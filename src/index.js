@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Box, CSSReset, ThemeProvider } from '@chakra-ui/core';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeProvider>
+      <CSSReset />
+      <Box padding={4}>
+        <App />
+      </Box>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
