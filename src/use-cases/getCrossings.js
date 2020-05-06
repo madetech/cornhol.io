@@ -10,15 +10,15 @@ export function getCrossings(corn, geese) {
   if (corn > 1 && geese > 1)
     return [];
 
-  if (corn == 1 && geese == 2) {
+  if (corn === 1 && geese === 2) {
     return ['corn', '', 'goose', 'corn', 'goose', '', 'corn'];
   }
 
-  if (corn == 2 && geese == 1) {
+  if (corn === 2 && geese === 1) {
     return ['goose', '', 'corn', 'goose', 'corn', '', 'goose'];
   }
 
-  if (corn == 1 && geese == 1)
+  if (corn === 1 && geese === 1)
     return ['corn', '', 'goose'];
 
   return [];
