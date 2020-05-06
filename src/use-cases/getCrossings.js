@@ -23,3 +23,18 @@ export function getCrossings(corn, geese) {
 
   return [];
 }
+
+export function getCrossingsPossible(corn, geese) {
+  if(!corn && !geese) {
+    return {
+      possible: true,
+      crossings: []
+    }
+  }
+  
+  const crossings = getCrossings(corn, geese);
+  return {
+    possible: crossings.length > 0,
+    crossings
+  }
+}

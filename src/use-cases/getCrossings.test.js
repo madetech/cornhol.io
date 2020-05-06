@@ -1,4 +1,4 @@
-import { getCrossings } from './getCrossings';
+import { getCrossings, getCrossingsPossible } from './getCrossings';
 
 describe('getCrossings', () => {
   it('will take 1 crossing when you have 1 goose', () => {
@@ -50,4 +50,29 @@ describe('getCrossings', () => {
     const crossings = getCrossings(0,0);
     expect(crossings).toStrictEqual([]);
   });
+
+  it('will take 0 crossings and be possible when you have 0 bags of corn and 0 geese', () => {
+    const crossings = getCrossingsPossible(0,0);
+    expect(crossings).toStrictEqual({
+      crossings: [],
+      possible: true
+    });
+  });
+
+  it('will take 3 crossings and be possible when you have 1 bags of corn and 1 geese', () => {
+    const crossings = getCrossingsPossible(1,1);
+    expect(crossings).toStrictEqual({
+      crossings: ['corn', '', 'goose'],
+      possible: true
+    });
+  });
+
+  it('will not be possible when you have 10 bags of corn and 10 geese', () => {
+    const crossings = getCrossingsPossible(10,10);
+    expect(crossings).toStrictEqual({
+      crossings: [],
+      possible: false
+    });
+  });
+
 });
