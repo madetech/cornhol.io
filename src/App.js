@@ -13,10 +13,17 @@ function App() {
       
       <FormControl marginTop={8}>
         <FormLabel htmlFor="bags">No. bags</FormLabel>
-        <Input type="number" name="bags" aria-describedby="bags-helper"
-          onChange={({ target: { value }}) => setCost(getCostOfTrips(parseInt(value)))} />
+        <Input type="number" name="bags" aria-describedby="bags-helper"/>
         <FormHelperText id="bags-helper">
           Enter the number of bags you have to transport
+        </FormHelperText>
+      </FormControl>
+
+      <FormControl marginTop={8}>
+        <FormLabel htmlFor="geese">No. Geese</FormLabel>
+        <Input type="number" name="geese" aria-describedby="geese-helper"/>
+        <FormHelperText id="geese-helper">
+          Enter the number of geese you have to transport
         </FormHelperText>
       </FormControl>
 
@@ -24,6 +31,12 @@ function App() {
         <Heading as="h3" size="sm">Cost of trips</Heading>
         <Text>£{cost.toFixed(2)}</Text>
       </Box>
+
+      <Box marginTop={8}>
+        <Heading as="h3" size="sm">Crossings</Heading>
+        <Text></Text>
+      </Box>
+
     </Box>
   );
 }
