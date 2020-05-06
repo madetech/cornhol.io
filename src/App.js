@@ -13,7 +13,7 @@ function App() {
   });
 
   const calculate = (bags, geese) => {
-    const crossings = getCrossings(bags, geese);
+    const crossings = getCrossings(parseInt(bags), parseInt(geese));
     const cost = getCostOfTrips(crossings.length);
     setResult({ crossings, cost });
   };
@@ -57,7 +57,7 @@ function App() {
               <Box>
                 <Box mt={8}>
                   <Heading as="h3" size="sm">Cost of trips</Heading>
-                  <Text data-testid="cost">£{result.cost}</Text>
+                  <Text data-testid="cost">£{result.cost.toFixed(2)}</Text>
                 </Box>
 
                 <Box mt={8}>
