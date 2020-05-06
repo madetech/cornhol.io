@@ -7,12 +7,12 @@ describe('getCostOfTrips', () => {
   });
 
   it('costs .75 to transport 2 bags', () => {
-    const cost = getCostOfTrips(2);
+    const cost = getCostOfTrips(3);
     expect(cost).toBe(.75);
   });
 
   it('costs 1.25 to transport 3 bags', () => {
-    const cost = getCostOfTrips(3);
+    const cost = getCostOfTrips(5);
     expect(cost).toBe(1.25);
   });
 
