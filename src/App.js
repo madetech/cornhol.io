@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Heading, Input, FormControl, FormLabel, Text, FormHelperText, Button } from '@chakra-ui/core';
+import { Box, Heading, Input, FormControl, FormLabel, Text, FormHelperText } from '@chakra-ui/core';
 import { getCostOfTrips } from './use-cases/getCostOfTrips';
 
 function App() {
@@ -7,7 +7,9 @@ function App() {
 
   return (
     <Box maxW={{ base: '100%', md: '40vw' }} margin="0 auto">
-      <Heading as="h1" fontSize="4rem" textAlign="center">🌽</Heading>
+      <Heading as="h1" fontSize="4rem" textAlign="center">
+        <span role="img" aria-label="Corn">🌽</span>
+      </Heading>
       
       <FormControl marginTop={8}>
         <FormLabel htmlFor="bags">No. bags</FormLabel>
