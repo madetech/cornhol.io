@@ -11,14 +11,14 @@ describe('getCrossings', () => {
     expect(crossings).toStrictEqual(['corn']);
   });
 
-  it('will take 2 crossings when you have 2 geese', () => {
+  it('will take 3 crossings when you have 2 geese', () => {
     const crossings = getCrossings(0,2);
-    expect(crossings).toStrictEqual(['goose', 'goose']);
+    expect(crossings).toStrictEqual(['goose', '', 'goose']);
   });
 
-  it('will take 2 crossings when you have 2 bags of corn', () => {
+  it('will take 3 crossings when you have 2 bags of corn', () => {
     const crossings = getCrossings(2,0);
-    expect(crossings).toStrictEqual(['corn', 'corn']);
+    expect(crossings).toStrictEqual(['corn', '', 'corn']);
   });
 
   it('will take 3 crossings when you have 1 bag of corn and 1 goose', () => {

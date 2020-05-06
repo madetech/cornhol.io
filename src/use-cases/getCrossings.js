@@ -1,10 +1,10 @@
 export function getCrossings(corn, geese) {
   if (geese && !corn) {
-    return Array(geese).fill('goose');
+    return Array(geese - 1).fill(['goose', '']).flat().concat('goose');
   }
 
   if (corn && !geese) {
-    return Array(corn).fill('corn');
+    return Array(corn - 1).fill(['corn', '']).flat().concat('corn');
   }
 
   if (corn > 1 && geese > 1)
