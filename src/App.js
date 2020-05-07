@@ -15,6 +15,16 @@ const calculate = (bags, geese, foxes) => {
   return { possible, crossings, cost };
 };
 
+const EmojiList = ({ count, emoji }) => {
+  let string = '';
+
+  for(let i = 0; i < count; i++) {
+    string += `${emoji} `;
+  }
+
+  return <Text mt={2} mb={2}>{string}</Text>;
+}
+
 function App() {
   const [ bags, setBags ] = useState(0);
   const [ geese, setGeese ] = useState(0);
@@ -29,8 +39,9 @@ function App() {
       
       <FormControl marginTop={8}>
         <FormLabel htmlFor="bags">No. bags</FormLabel>
+        <EmojiList count={bags} emoji="🌽" />
         <Input type="number" name="bags" aria-describedby="bags-helper"
-          data-testid="corn-input"
+          data-testid="corn-input" min={0}
           value={bags} onChange={({ target: { value } }) => setBags(value)} />
         <FormHelperText id="bags-helper">
           Enter the number of bags you have to transport
@@ -39,8 +50,9 @@ function App() {
 
       <FormControl marginTop={8}>
         <FormLabel htmlFor="geese">No. geese</FormLabel>
+        <EmojiList count={geese} emoji="🦢" />
         <Input type="number" name="geese" aria-describedby="geese-helper"
-          data-testid="geese-input"
+          data-testid="geese-input" min={0}
           value={geese} onChange={({ target: { value } }) => setGeese(value)} />
         <FormHelperText id="geese-helper">
           Enter the number of geese you have to transport
@@ -49,8 +61,9 @@ function App() {
 
       <FormControl marginTop={8}>
         <FormLabel htmlFor="geese">No. foxes</FormLabel>
+        <EmojiList count={foxes} emoji="🦊" />
         <Input type="number" name="foxes" aria-describedby="foxes-helper"
-          data-testid="foxes-input"
+          data-testid="foxes-input" min={0}
           value={foxes} onChange={({ target: { value } }) => setFoxes(value)} />
         <FormHelperText id="foxes-helper">
           Enter the number of foxes you have to transport
