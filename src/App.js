@@ -4,8 +4,13 @@ import { getCostOfTrips } from './use-cases/getCostOfTrips';
 import { getCrossingsPossible } from './use-cases/getCrossings';
 import CrossingsList from './CrossingsList';
 
-const calculate = (bags, geese) => {
-  const { possible, crossings } = getCrossingsPossible(parseInt(bags), parseInt(geese));
+const calculate = (bags, geese, foxes) => {
+  const { possible, crossings } = getCrossingsPossible(
+    parseInt(bags), 
+    parseInt(geese),
+    parseInt(foxes),
+  );
+  
   const cost = getCostOfTrips(crossings.length);
   return { possible, crossings, cost };
 };
@@ -13,6 +18,7 @@ const calculate = (bags, geese) => {
 function App() {
   const [ bags, setBags ] = useState(0);
   const [ geese, setGeese ] = useState(0);
+  const [ foxes, setFoxes ] = useState(0);
   const [ result, setResult ] = useState(calculate(bags, geese));
   
   return (
@@ -32,7 +38,7 @@ function App() {
       </FormControl>
 
       <FormControl marginTop={8}>
-        <FormLabel htmlFor="geese">No. Geese</FormLabel>
+        <FormLabel htmlFor="geese">No. geese</FormLabel>
         <Input type="number" name="geese" aria-describedby="geese-helper"
           data-testid="geese-input"
           value={geese} onChange={({ target: { value } }) => setGeese(value)} />
@@ -40,11 +46,21 @@ function App() {
           Enter the number of geese you have to transport
         </FormHelperText>
       </FormControl>
+
+      <FormControl marginTop={8}>
+        <FormLabel htmlFor="geese">No. foxes</FormLabel>
+        <Input type="number" name="foxes" aria-describedby="foxes-helper"
+          data-testid="foxes-input"
+          value={foxes} onChange={({ target: { value } }) => setFoxes(value)} />
+        <FormHelperText id="foxes-helper">
+          Enter the number of foxes you have to transport
+        </FormHelperText>
+      </FormControl>
       
       <Button
         mt={8} 
         data-testid="calculate-button"
-        onClick={() => setResult(calculate(bags, geese))}>
+        onClick={() => setResult(calculate(bags, geese, foxes))}>
           Calculate
       </Button>
 
