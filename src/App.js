@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Heading, Input, FormControl, FormLabel, Text, FormHelperText, ListItem, List } from '@chakra-ui/core';
+import { Box, Button, Heading, Input, FormControl, FormLabel, Text, FormHelperText } from '@chakra-ui/core';
 import { getCostOfTrips } from './use-cases/getCostOfTrips';
 import { getCrossingsPossible } from './use-cases/getCrossings';
 import CrossingsList from './CrossingsList';
