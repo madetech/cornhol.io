@@ -41,8 +41,8 @@ function App() {
         <FormLabel htmlFor="bags">No. bags</FormLabel>
         <EmojiList count={bags} emoji="🌽" />
         <Input type="number" name="bags" aria-describedby="bags-helper"
-          data-testid="corn-input" min={0}
-          value={bags} onChange={({ target: { value } }) => setBags(value)} />
+          data-testid="corn-input" min={0} max={64}
+          value={bags} onChange={({ target: { value } }) => setBags(Math.min(value, 64))} />
         <FormHelperText id="bags-helper">
           Enter the number of bags you have to transport
         </FormHelperText>
@@ -52,8 +52,8 @@ function App() {
         <FormLabel htmlFor="geese">No. geese</FormLabel>
         <EmojiList count={geese} emoji="🦢" />
         <Input type="number" name="geese" aria-describedby="geese-helper"
-          data-testid="geese-input" min={0}
-          value={geese} onChange={({ target: { value } }) => setGeese(value)} />
+          data-testid="geese-input" min={0} max={64}
+          value={geese} onChange={({ target: { value } }) => setGeese(Math.min(value, 64))} />
         <FormHelperText id="geese-helper">
           Enter the number of geese you have to transport
         </FormHelperText>
@@ -63,8 +63,8 @@ function App() {
         <FormLabel htmlFor="geese">No. foxes</FormLabel>
         <EmojiList count={foxes} emoji="🦊" />
         <Input type="number" name="foxes" aria-describedby="foxes-helper"
-          data-testid="foxes-input" min={0}
-          value={foxes} onChange={({ target: { value } }) => setFoxes(value)} />
+          data-testid="foxes-input" min={0} max={64}
+          value={foxes} onChange={({ target: { value } }) => setFoxes(Math.min(value, 64))} />
         <FormHelperText id="foxes-helper">
           Enter the number of foxes you have to transport
         </FormHelperText>
