@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, Heading, Input, FormControl, FormLabel, Text, FormHelperText, ListItem, List } from '@chakra-ui/core';
 import { getCostOfTrips } from './use-cases/getCostOfTrips';
 import { getCrossingsPossible } from './use-cases/getCrossings';
+import CrossingsList from './CrossingsList';
 
 const calculate = (bags, geese) => {
   const { possible, crossings } = getCrossingsPossible(parseInt(bags), parseInt(geese));
@@ -58,16 +59,7 @@ function App() {
 
                 <Box mt={8}>
                   <Heading as="h3" size="sm">Crossings</Heading>
-                    <List>
-                    {
-                      result.crossings.map((crossing, i) => {
-                        if (crossing === '') {
-                          return <ListItem key={i} color="grey">nothing</ListItem>
-                        }
-                        return <ListItem key={i}>{crossing}</ListItem>;
-                      })
-                    }
-                    </List>
+                  <CrossingsList crossings={result.crossings} />
                 </Box>
               </Box>
             )
