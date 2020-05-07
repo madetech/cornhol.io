@@ -30,7 +30,8 @@ function App() {
   const [ geese, setGeese ] = useState(0);
   const [ foxes, setFoxes ] = useState(0);
   const [ result, setResult ] = useState(calculate(bags, geese));
-  
+  const [ step, setStep ] = useState(0);
+
   return (
     <Box maxW={{ base: '100%', md: '40vw' }} margin="0 auto">
       <Heading as="h1" fontSize="4rem" textAlign="center">
@@ -73,7 +74,10 @@ function App() {
       <Button
         mt={8} 
         data-testid="calculate-button"
-        onClick={() => setResult(calculate(bags, geese, foxes))}>
+        onClick={() => {
+            setResult(calculate(bags, geese, foxes));
+            setStep(0);
+          }}>
           Calculate
       </Button>
 
@@ -88,7 +92,7 @@ function App() {
 
                 <Box mt={8}>
                   <Heading as="h3" size="sm">Crossings</Heading>
-                  <CrossingsList key={result.crossings} crossings={result.crossings} />
+                  <CrossingsList key={result.crossings} crossings={result.crossings} step={step} setStep={setStep} />
                 </Box>
               </Box>
             )

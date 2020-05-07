@@ -7,21 +7,20 @@ describe('<CrossingsList />', () => {
   it('renders nothings', () => {
     const { getByText } = render(
       <ThemeProvider>
-        <CrossingsList crossings={['']} />
+        <CrossingsList crossings={['']} step={0} />
       </ThemeProvider>
     );
     
-    expect(getByText('take ferry across with: nothing')).toBeInTheDocument();
+    expect(getByText(/take ferry across with nothing/)).toBeInTheDocument();
   });
 
   it('renders return with for return journeys', () => {
     const { getByText } = render(
       <ThemeProvider>
-        <CrossingsList crossings={['goose', 'corn']} />
+        <CrossingsList crossings={['goose', 'corn']} step={1} />
       </ThemeProvider>
     );
     
-    expect(getByText('take ferry across with: goose')).toBeInTheDocument();
-    expect(getByText('return with: corn')).toBeInTheDocument();
+    expect(getByText(/return with corn/)).toBeInTheDocument();
   });
 });
