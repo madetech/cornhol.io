@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, ListItem } from '@chakra-ui/core';
+import { Checkbox, List, ListItem } from '@chakra-ui/core';
 
 const CrossingsList = ({ crossings }) => {
   return (
@@ -8,10 +8,11 @@ const CrossingsList = ({ crossings }) => {
       crossings.map((crossing, i) => {
         const prefix = (i % 2) ? 'return with: ' : 'take ferry across with: ';
 
-        if (crossing === '') {
-          return <ListItem key={i} color="grey">{prefix} nothing</ListItem>
-        }
-        return <ListItem key={i}>{prefix} {crossing}</ListItem>;
+        return <ListItem padding={2} key={i}>
+          <Checkbox size="md" mr={2} variantColor="green">
+            {prefix} {(crossing === '') ? 'nothing' : crossing}
+          </Checkbox>
+        </ListItem>
       })
     }
     </List>
