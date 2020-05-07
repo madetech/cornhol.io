@@ -8,8 +8,8 @@ const CrossingsList = ({ crossings }) => {
       crossings.map((crossing, i) => {
         const prefix = (i % 2) ? 'return with: ' : 'take ferry across with: ';
 
-        return <ListItem padding={2} key={i}>
-          <Checkbox size="md" mr={2} variantColor="green">
+        return <ListItem padding={2} key={`${i}_${crossing}`}>
+          <Checkbox size="" mr={2} variantColor="green">
             {prefix} {(crossing === '') ? 'nothing' : crossing}
           </Checkbox>
         </ListItem>

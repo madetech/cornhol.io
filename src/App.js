@@ -10,7 +10,7 @@ const calculate = (bags, geese, foxes) => {
     parseInt(geese),
     parseInt(foxes),
   );
-  
+
   const cost = getCostOfTrips(crossings.length);
   return { possible, crossings, cost };
 };
@@ -75,7 +75,7 @@ function App() {
 
                 <Box mt={8}>
                   <Heading as="h3" size="sm">Crossings</Heading>
-                  <CrossingsList crossings={result.crossings} />
+                  <CrossingsList key={result.crossings} crossings={result.crossings} />
                 </Box>
               </Box>
             )
