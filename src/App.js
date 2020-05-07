@@ -3,22 +3,17 @@ import { Box, Button, Heading, Input, FormControl, FormLabel, Text, FormHelperTe
 import { getCostOfTrips } from './use-cases/getCostOfTrips';
 import { getCrossingsPossible } from './use-cases/getCrossings';
 
+const calculate = (bags, geese) => {
+  const { possible, crossings } = getCrossingsPossible(parseInt(bags), parseInt(geese));
+  const cost = getCostOfTrips(crossings.length);
+  return { possible, crossings, cost };
+};
+
 function App() {
   const [ bags, setBags ] = useState(0);
   const [ geese, setGeese ] = useState(0);
-
-  const [ result, setResult ] = useState({
-    possible: true,
-    crossings: [],
-    cost: 0,
-  });
-
-  const calculate = (bags, geese) => {
-    const { possible, crossings } = getCrossingsPossible(parseInt(bags), parseInt(geese));
-    const cost = getCostOfTrips(crossings.length);
-    setResult({ possible, crossings, cost });
-  };
-
+  const [ result, setResult ] = useState(calculate(bags, geese));
+  
   return (
     <Box maxW={{ base: '100%', md: '40vw' }} margin="0 auto">
       <Heading as="h1" fontSize="4rem" textAlign="center">
@@ -48,7 +43,7 @@ function App() {
       <Button
         mt={8} 
         data-testid="calculate-button"
-        onClick={() => calculate(bags, geese)}>
+        onClick={() => setResult(calculate(bags, geese))}>
           Calculate
       </Button>
 

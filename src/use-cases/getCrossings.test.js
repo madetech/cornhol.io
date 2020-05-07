@@ -46,15 +46,15 @@ describe('getCrossings', () => {
     expect(crossings).toStrictEqual(['goose', '', 'corn', 'goose', 'corn', '', 'goose']);
   });
 
-  it('will take 0 crossings when you have 0 bags of corn and 0 geese', () => {
+  it('will take 1 crossings when you have 0 bags of corn and 0 geese', () => {
     const crossings = getCrossings(0,0);
-    expect(crossings).toStrictEqual([]);
+    expect(crossings).toStrictEqual(['']);
   });
 
-  it('will take 0 crossings and be possible when you have 0 bags of corn and 0 geese', () => {
+  it('will take 1 crossings and be possible when you have 0 bags of corn and 0 geese', () => {
     const crossings = getCrossingsPossible(0,0);
     expect(crossings).toStrictEqual({
-      crossings: [],
+      crossings: [''],
       possible: true
     });
   });

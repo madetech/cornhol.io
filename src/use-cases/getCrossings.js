@@ -21,20 +21,14 @@ export function getCrossings(corn, geese) {
   if (corn === 1 && geese === 1)
     return ['corn', '', 'goose'];
 
-  return [];
+  return [''];
 }
 
-export function getCrossingsPossible(corn, geese) {
-  if(!corn && !geese) {
-    return {
-      possible: true,
-      crossings: []
-    }
-  }
-  
+export function getCrossingsPossible(corn, geese) {  
   const crossings = getCrossings(corn, geese);
+
   return {
     possible: crossings.length > 0,
     crossings
-  }
+  };
 }
