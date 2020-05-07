@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import { Box, Button, Heading, Input, FormControl, FormLabel, Text, FormHelperText, ListItem, List } from '@chakra-ui/core';
 import { getCostOfTrips } from './use-cases/getCostOfTrips';
-import { getCrossings } from './use-cases/getCrossings';
+import { getCrossingsPossible } from './use-cases/getCrossings';
 
 function App() {
   const [ bags, setBags ] = useState(0);
   const [ geese, setGeese ] = useState(0);
 
   const [ result, setResult ] = useState({
+    possible: true,
     crossings: [],
     cost: 0,
   });
 
   const calculate = (bags, geese) => {
-    const crossings = getCrossings(parseInt(bags), parseInt(geese));
+    const { possible, crossings } = getCrossingsPossible(parseInt(bags), parseInt(geese));
     const cost = getCostOfTrips(crossings.length);
-    setResult({ crossings, cost });
+    setResult({ possible, crossings, cost });
   };
 
   return (
@@ -52,7 +53,7 @@ function App() {
       </Button>
 
       {
-        (result.crossings.length > 0)
+        (result.possible)
           ? (
               <Box>
                 <Box mt={8}>

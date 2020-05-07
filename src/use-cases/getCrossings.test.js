@@ -74,5 +74,4 @@ describe('getCrossings', () => {
       possible: false
     });
   });
-
 });
